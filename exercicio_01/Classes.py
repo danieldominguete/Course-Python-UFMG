@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 class Ponto2D:
 
     def __init__(self, x: float = 0.0, y: float = 0.0):
@@ -36,7 +34,7 @@ class Retangulo(object):
     def __calcularAreaPontos(self, p1: Ponto2D, p2: Ponto2D) -> float:
         return (abs(p1.x - p2.x)) * (abs(p1.y - p2.y))
 
-    def __checarIntersecao(self, ret: Retangulo) -> bool:
+    def __checarIntersecao(self, ret) -> bool:
         if (
                 self.esq_sup.x > ret.dir_inf.x
                 or self.dir_inf.x < ret.esq_sup.x
@@ -47,7 +45,7 @@ class Retangulo(object):
 
         return True
 
-    def __areaIntersecao(self, ret: Retangulo) -> float:
+    def __areaIntersecao(self, ret) -> float:
 
         # calculando pontos comuns
         min_x = max(self.esq_sup.x, ret.esq_sup.x)
@@ -60,7 +58,7 @@ class Retangulo(object):
 
         return self.__calcularAreaPontos(p1=p1, p2=p2)
 
-    def calcularIntersecao(self, ret: Retangulo):
+    def calcularIntersecao(self, ret):
 
         if self.__checarIntersecao(ret=ret):
             return self.__areaIntersecao(ret=ret)
