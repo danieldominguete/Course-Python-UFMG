@@ -11,7 +11,7 @@ def py2ll(L):
     if not L:
         return None
     else:
-        return (L[0], py2ll(L[1, :]))
+        return (L[0], py2ll(L[1:]))
 
 
 def ll2py(L):
@@ -45,7 +45,10 @@ def sorted(L):
 
 def sum(L):
     # retorna a soma dos elementos da lista encadeada L
-    return 0
+    if not L:
+        return 0
+    else:
+        return head(L) + sum(tail(L))
 
 
 def split(L):
@@ -91,12 +94,24 @@ def mSort(L):
 
 def max(L):
     # retorna o maior elemento na lista encadeada L
-    return 0
+    if not L:
+        return 0
+    if not tail(L):
+        return head(L)
+    if not sorted(L):
+        return max(mSort(L))
+    else:
+        return max(tail(L))
 
 
 def get(L, N):
     # retorna o n-ésimo elemento da lista encadeada L
-    return None
+    if not L:
+        return None
+    if N == 0:
+        return head(L)
+    else:
+        return get(tail(L), N - 1)
 
 
 def main():
