@@ -17,7 +17,7 @@ def py2ll(L):
 def ll2py(L):
     # lista encadeada para lista nativa
     if not L:
-        return None
+        return []
     else:
         H = head(L)
         T = tail(L)
@@ -27,7 +27,7 @@ def ll2py(L):
 def size(L):
     # tamanho de uma lista encadeada
     if not L:
-        return None
+        return 0
     else:
         return 1 + size(tail(L))
 
@@ -105,7 +105,7 @@ def max(L):
 
 
 def get(L, N):
-    # retorna o n-ésimo elemento da lista encadeada L
+    # retorna o n-esimo elemento da lista encadeada L
     if not L:
         return None
     if N == 0:
